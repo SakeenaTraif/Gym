@@ -1,7 +1,8 @@
 import * as types from "../actions/types";
 
 const initialState = {
-  classes: [],
+  sessiones: [],
+  loading: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -9,14 +10,15 @@ const reducer = (state = initialState, action) => {
     case types.FETCH_CLASS:
       return {
         ...state,
-        classes: action.payload,
+        sessiones: action.payload,
+        loading: false,
       };
-      case types.ADD_CLASS:
-        const { newClass } = action.payload;
-        return {
-          ...state,
-          classes: [...state.classes, newClass],
-        };
+    case types.ADD_CLASS:
+      const { newClass } = action.payload;
+      return {
+        ...state,
+        sessiones: [...state.sessiones, newClass],
+      };
 
     default:
       return state;

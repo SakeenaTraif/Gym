@@ -15,20 +15,17 @@ export const fetchGyms = () => {
   };
 };
 export const addGym = (newGym) => {
-  return async (dispatch) =>{
-    
+  return async (dispatch) => {
     try {
       const fromData = new FormData();
       for (const key in newGym) fromData.append(key, newGym[key]);
-      const res = await instance.post('/gyms',fromData);
+      const res = await instance.post("/gyms", fromData);
       dispatch({
         type: types.ADD_GYM,
-        payload: { newGYM: res.data},
+        payload: { newGYM: res.data },
       });
-      
     } catch (error) {
       console.log(error);
     }
   };
 };
- 

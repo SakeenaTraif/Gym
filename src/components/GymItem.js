@@ -9,7 +9,7 @@ const GymItem = ({ gym }) => {
       <Link to={`/gyms/${gym.slug}`}>
         <img alt={gym.name} src={gym.image} />
       </Link>
-      <p >{gym.name}</p>
+      <p>{gym.name}</p>
     </ListWrapper>
   );
 };

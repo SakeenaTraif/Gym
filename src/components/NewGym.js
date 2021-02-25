@@ -1,6 +1,6 @@
 import { addGym } from "../store/actions/gymActions";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Redirect } from "react-router-dom";
 
 import { useState } from "react";
 
@@ -11,6 +11,11 @@ const NewGym = () => {
   const foundGym = useSelector((state) =>
     state.gymReducer.gyms.find((gym) => gym.slug === gymSlug)
   );
+  // const user = useSelector((state) =>
+  //   state.authReducer.user.find((user) => user.isAdmin === true)
+  // );
+
+  // if (!user) return <Redirect to="/" />;
 
   const [gym, setGym] = useState(
     foundGym ?? {
@@ -21,7 +26,6 @@ const NewGym = () => {
 
   const handleChange = (event) =>
     setGym({ ...gym, [event.target.name]: event.target.value });
-    
 
   const handleImage = (event) =>
     setGym({ ...gym, image: event.target.files[0] });
@@ -29,6 +33,7 @@ const NewGym = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(addGym(gym));
+    console.log("helo gym");
     history.push("/gyms");
   };
 
@@ -54,8 +59,7 @@ const NewGym = () => {
           className="form-control"
         />
       </div>
-      <button type="submit" className="btn btn-info float-right">
-      </button>
+      <button type="submit" className="btn btn-info float-right"></button>
     </form>
   );
 };

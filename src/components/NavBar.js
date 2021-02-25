@@ -1,8 +1,15 @@
-import { Logo, AuthButtonStyled, UsernameStyled, NavStyled ,NavGym} from "../styles";
+import {
+  Logo,
+  AuthButtonStyled,
+  UsernameStyled,
+  NavStyled,
+  NavGym,
+} from "../styles";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { FiLogOut } from "react-icons/fi";
 import { signout } from "../store/actions/authActions";
+import NewGym from "./NewGym";
 
 const NavBar = () => {
   const user = useSelector((state) => state.authReducer.user);
@@ -19,9 +26,9 @@ const NavBar = () => {
       <h4>GYM!</h4>
 
       <div className="navbar-nav ml-auto">
-      <NavGym className="nav-item nav-link" to="/gyms">
-            Gyms
-          </NavGym>
+        <NavGym className="nav-item nav-link" to="/gyms">
+          Gyms
+        </NavGym>
         {user ? (
           <>
             <UsernameStyled>Hello, {user.username}! </UsernameStyled>
@@ -39,11 +46,13 @@ const NavBar = () => {
             <Link to="/signin">
               <AuthButtonStyled>Sign in</AuthButtonStyled>
             </Link>
+            {/* 
+            <Link>
+              <NewGym />
+            </Link> */}
           </>
         )}
-    
       </div>
-      
     </NavStyled>
   );
 };
