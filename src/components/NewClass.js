@@ -7,17 +7,20 @@ import { useState } from "react";
 const NewClass = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { classSlug, gymId, gymSlug } = useParams();
-  const user = useSelector((state) => state.authReducer.user);
-  const gyms = useSelector((state) => state.gymReducer.gyms);
-  const gym = gyms.find((_gym) => _gym.slug === gymSlug);
+  // const { classSlug, gymId, gymSlug } = useParams();
+  const { classSlug, gymId } = useParams();
+  const foundClass = useSelector((state) =>
+  state.classReducer.sessiones.find((session) => session.slug === classSlug)
+);
+  // const user = useSelector((state) => state.authReducer.user);
+  // const gyms = useSelector((state) => state.gymReducer.gyms);
+  // const gym = gyms.find((_gym) => _gym.slug === gymSlug);
 
-  // const foundClass = useSelector((state) =>
-  //   state.classReducer.classes.find((session) => session.slug === classSlug)
-  // );
+ 
 
-  const [session, setClass] = useState({
-    //gymId: gym.id,
+  const [session, setClass] = useState(
+    foundClass ?? {
+    gymId: gymId,
     name: "",
     numOfSeates: "",
     bookedSeats: "",

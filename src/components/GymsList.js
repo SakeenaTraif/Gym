@@ -14,12 +14,13 @@ function GymsList() {
   let gymList = gyms.map((gym) => <GymItem key={gym.id} gym={gym} />);
   return (
     <div>
+       
       {loading ? "Loading... " : gymList}
       {/* {user.type === "admin" && ( */}
       <Link to="/gyms/new">
-        <button>Add Class</button>
+       <button type="button" className="btn btn-info">Add GYM</button>
       </Link>
-      {/* )} */}
+      {/* )}  */}
     </div>
   );
 }

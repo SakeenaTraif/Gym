@@ -34,7 +34,7 @@ export const addClass = (newClass) => {
       const fromData = new FormData();
       for (const key in newClass) fromData.append(key, newClass[key]);
       const res = await instance.post(
-        `gyms/${newClass.gymId}/sessions`,
+        `gyms/${newClass.gymId}/classes`,
         fromData
       );
       dispatch({

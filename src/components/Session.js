@@ -11,9 +11,7 @@ const Session = ({ session }) => {
         <img alt={session.name} src={session.image} />
       </Link>
       <p className="session-name">{session.name}</p>
-      <Link to="">
-        <button>Add class</button>
-      </Link>
+     
     </SessionWrapper>
   );
 };

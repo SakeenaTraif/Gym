@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 
 // Styling
-import { ListWrapper } from "../styles";
+import { ItemWrapper } from "../styles";
 
 const GymItem = ({ gym }) => {
   return (
-    <ListWrapper className="col-lg-4 col-md-6 col-sm-6">
+    <ItemWrapper >
       <Link to={`/gyms/${gym.slug}/classes`}>
         <img alt={gym.name} src={gym.image} />
       </Link>
       <p>{gym.name}</p>
-      <Link to={`/gyms/${gym.slug}/classes/new`}>
-        <button>Add class</button>
+      <Link to={`/gyms/${gym.id}/classes/new`}>
+        <button type="button" className="btn btn-info">Add class</button>
       </Link>
-    </ListWrapper>
+    </ItemWrapper>
   );
 };
 

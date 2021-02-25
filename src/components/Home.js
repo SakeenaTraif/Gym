@@ -5,7 +5,7 @@ import gym from "../media/gym.png";
 const Home = () => {
   return (
     <>
-      <Title>GYM</Title>
+      <Title>GYM </Title>
       <Description>GYM GYM GYM</Description>
       <ShopImage
         alt="cookie shop"

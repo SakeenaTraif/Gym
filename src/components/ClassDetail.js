@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { DetailWrapper } from "../styles";
 
 const ClassDetail = () => {
-  const { sessionSlug } = useParams();
+  const { classSlug } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -15,7 +15,7 @@ const ClassDetail = () => {
   const loading = useSelector((state) => state.classReducer.loading);
   if (!user) return <Redirect to="/" />;
   //foundSeession
-  const foundSeession = sessions.find((_class) => _class.slug == sessionSlug);
+  const foundSeession = sessions.find((_class) => _class.slug == classSlug);
   let checkUser = foundSeession.users.some((_user) => _user.id === user.id);
   const userClasses = sessions.filter((_class) =>
     _class.users.some((_user) => _user.id === user.id)

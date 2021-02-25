@@ -66,6 +66,7 @@ export const ListWrapper = styled.div`
   display: flex;
 `;
 
+
 export const NavGym = styled(Link)`
   color: black;
   padding: 0.25em 1em;
