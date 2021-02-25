@@ -7,28 +7,29 @@ import { useState } from "react";
 const NewClass = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { classSlug, gymId } = useParams();
-  const foundClass = useSelector((state) =>
-    state.classReducer.classes.find((session) => session.slug === classSlug)
-  );
+  const { classSlug, gymId, gymSlug } = useParams();
+  const user = useSelector((state) => state.authReducer.user);
+  const gyms = useSelector((state) => state.gymReducer.gyms);
+  const gym = gyms.find((_gym) => _gym.slug === gymSlug);
 
-  const [session, setClass] = useState(
-    foundClass ?? {
-      gymId: gymId,
-      name: "",
-      numOfSeates:"",
-      bookedSeats:"",
-      price: 0,
-      date: "",
-      time:"",
-      image: "",
-      type:"",
-    }
-  );
+  // const foundClass = useSelector((state) =>
+  //   state.classReducer.classes.find((session) => session.slug === classSlug)
+  // );
+
+  const [session, setClass] = useState({
+    //gymId: gym.id,
+    name: "",
+    numOfSeates: "",
+    bookedSeats: "",
+    price: 0,
+    date: "",
+    time: "",
+    image: "",
+    typeId: "",
+  });
 
   const handleChange = (event) =>
     setClass({ ...session, [event.target.name]: event.target.value });
-    
 
   const handleImage = (event) =>
     setClass({ ...session, image: event.target.files[0] });
@@ -111,8 +112,7 @@ const NewClass = () => {
           className="form-control"
         />
       </div>
-      <button type="submit" className="btn btn-info float-right">
-      </button>
+      <button type="submit" className="btn btn-info float-right"></button>
     </form>
   );
 };

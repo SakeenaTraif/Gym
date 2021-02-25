@@ -29,14 +29,16 @@ function Routes() {
       <Route path={["/gyms/new"]}>
         <NewGym />
       </Route>
+
+      <Route exact path="/gyms">
+        <GymList />
+      </Route>
+
       <Route path="/signin">
         <Signin />
       </Route>
       <Route path="/signup">
         <Signup />
-      </Route>
-      <Route path="/gyms">
-        <GymList />
       </Route>
       <Route path="/">
         <Home />

@@ -26,9 +26,9 @@ const NavBar = () => {
       <h4>GYM!</h4>
 
       <div className="navbar-nav ml-auto">
-        <NavGym className="nav-item nav-link" to="/gyms">
+        <Link className="nav-item nav-link" to="/gyms">
           Gyms
-        </NavGym>
+        </Link>
         {user ? (
           <>
             <UsernameStyled>Hello, {user.username}! </UsernameStyled>

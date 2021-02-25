@@ -1,6 +1,8 @@
 import * as types from "../actions/types";
 
 const initialState = {
+  types: [],
+
   sessiones: [],
   loading: true,
 };
@@ -13,6 +15,13 @@ const reducer = (state = initialState, action) => {
         sessiones: action.payload,
         loading: false,
       };
+
+    case types.FETCH_TYPE:
+      return {
+        ...state,
+        _types: action.payload,
+      };
+
     case types.ADD_CLASS:
       const { newClass } = action.payload;
       return {
